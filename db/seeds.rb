@@ -5,3 +5,56 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "Cleaning up database"
+
+Airline.destroy_all
+Review.destroy_all
+
+puts "Database is clean"
+
+puts "Seeding the database"
+
+
+airlines = Airline.create([
+  {
+    name: "United Airlines",
+    image_url: "https://open-flights.s3.amazonaws.com/United-Airlines.png"
+  },
+  {
+    name: "Southwest",
+    image_url: "https://open-flights.s3.amazonaws.com/Southwest-Airlines.png"
+  },
+  {
+    name: "Delta",
+    image_url: "https://open-flights.s3.amazonaws.com/Delta.png"
+  },
+  {
+    name: "Alaska Airlines",
+    image_url: "https://open-flights.s3.amazonaws.com/Alaska-Airlines.png"
+  },
+  {
+    name: "JetBlue",
+    image_url: "https://open-flights.s3.amazonaws.com/JetBlue.png"
+  },
+  {
+    name: "American Airlines",
+    image_url: "https://open-flights.s3.amazonaws.com/American-Airlines.png"
+  }
+])
+
+
+reviews = Review.create([
+  {
+    title: 'Great airline',
+    description: 'I had a lovely time. The food was great!',
+    score: 5,
+    airline: airlines.first
+  },
+  {
+    title: 'Never again',
+    description: 'I had a really bad time, the service was really bad.',
+    score: 1,
+    airline: airlines.first
+  }
+])
