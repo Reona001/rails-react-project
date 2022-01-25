@@ -54,7 +54,7 @@ module Api
       end
 
       def options
-        @options ||= { indclude: [:reviews] }
+        @options ||= { indcluded: %i[:reviews] }
       end
 
     end
