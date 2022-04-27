@@ -5,15 +5,17 @@ import Airlines from './Airlines/Airlines'
 import Airline from './Airline/Airline'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-const App = () => {
-  return (
-    <Router>
+class App extends React.Component{
+  render () {
+    return (
+    <div>
       <Routes>
         <Route path="/" element={<Airlines /> } />
-        <Route exact path="/airlines/:slug" component={Airline}/>
+        <Route exact path="/airlines/:slug" element={<Airline />}/>
       </Routes>
-    </Router>
-  )
+    </div>
+   )
+  }
 }
 
 export default App
